@@ -27,8 +27,8 @@ jobs:
           # "ubuntu-py38",
           # "ubuntu-py39",
           # "ubuntu-py310",
-          "ubuntu-py311",
-          # "ubuntu-py312",
+          # "ubuntu-py311",
+          "ubuntu-py312",
           # "ubuntu-pypy3",
           # "ubuntu-benchmark",
         ]
@@ -65,16 +65,16 @@ jobs:
           #   python: "3.10"
           #   os: ubuntu-latest
           #   tox_env: "py310"
-          - name: "ubuntu-py311"
-            python: "3.11"
-            os: ubuntu-latest
-            tox_env: "py311"
-            use_coverage: true
-          # - name: "ubuntu-py312"
-          #   python: "3.12-dev"
+          # - name: "ubuntu-py311"
+          #   python: "3.11"
           #   os: ubuntu-latest
-          #   tox_env: "py312"
+          #   tox_env: "py311"
           #   use_coverage: true
+          - name: "ubuntu-py312"
+            python: "3.12-dev"
+            os: ubuntu-latest
+            tox_env: "py312"
+            use_coverage: true
           # - name: "ubuntu-pypy3"
           #   python: "pypy3.9"
           #   os: ubuntu-latest
