@@ -110,11 +110,14 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: ${{ github.workspace }}/.tox/py312/.pytest_cache/v/pytest_ranking_data
-        key: pytest-ranking-cache-${{ runner.os }}-${{ matrix.python }}
+        key: pytest-ranking-cache-${{ matrix.os }}-${{ matrix.python }}
     
     - name: Test without coverage
-      if: "! matrix.use_coverage"
+      # if: "! matrix.use_coverage"
       run: "tox -e ${{ matrix.tox_env }}"
+
+    - name: find cache
+      run: "ls ${{ github.workspace }}/.tox"
 
     - name: Save pytest-ranking cache
       id: save-pytest-ranking-cache
@@ -122,7 +125,7 @@ jobs:
       uses: actions/cache/save@v4
       with:
         path: ${{ github.workspace }}/.tox/py312/.pytest_cache/v/pytest_ranking_data
-        key: pytest-ranking-cache-${{ runner.os }}-${{ matrix.python }}-${{ github.run_id }}
+        key: pytest-ranking-cache-${{ matrix.os }}-${{ matrix.python }}-${{ github.run_id }}
 
     # - name: Test with coverage
     #   if: "matrix.use_coverage"
