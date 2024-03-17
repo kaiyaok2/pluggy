@@ -117,7 +117,7 @@ jobs:
       run: "tox -e ${{ matrix.tox_env }}"
 
     - name: find cache
-      run: "ls ${{ github.workspace }}/.tox"
+      run: "ls ${{ github.workspace }}/.tox/py312/.pytest_cache/v/"
 
     - name: Save pytest-ranking cache
       id: save-pytest-ranking-cache
